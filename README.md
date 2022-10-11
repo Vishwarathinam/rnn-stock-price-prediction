@@ -22,6 +22,9 @@ Write your own steps
 
 ### PROGRAM:
 ~~~
+DEVELOPED BY: Vishwa Rathinam s
+REGISTER NUMBER:212221240063
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -48,15 +51,15 @@ X_train.shape
 length = 60
 n_features = 1
 model = Sequential()
-## Write your code here
+model.add(layers.SimpleRNN(60,input_shape=(60,1)))
+model.add(layers.Dense(1))
 
-model.compile(optimizer='', loss='')
+model.compile(optimizer='adam', loss='mse')
 model.summary()
-model.fit(X_train1,y_train,epochs=100, batch_size=32)
 dataset_test = pd.read_csv('testset.csv')
 test_set = dataset_test.iloc[:,1:2].values
 test_set.shape
-dataset_total = pd.concat((dataset_train['Open'],dataset_test['Open']),axis=0)
+dataset_total = pd.concat((dataset_train['Open'],dataset_test['Open'])
 inputs = dataset_total.values
 inputs = inputs.reshape(-1,1)
 inputs_scaled=sc.transform(inputs)
@@ -75,6 +78,7 @@ plt.xlabel('Time')
 plt.ylabel('Google Stock Price')
 plt.legend()
 plt.show()
+
 ~~~
 
 ### OUTPUT:
